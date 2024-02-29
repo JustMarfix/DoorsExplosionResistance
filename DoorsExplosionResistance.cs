@@ -6,7 +6,7 @@ namespace DoorsExplosionResistance
 {
     public class DoorsExplosionResistance : Plugin<Config>
     {
-        public static DoorsExplosionResistance Instance { get; set; } = new DoorsExplosionResistance();
+        public static DoorsExplosionResistance Instance { get; private set; }
 
         public DoorsExplosionResistance() { }
 
@@ -15,6 +15,7 @@ namespace DoorsExplosionResistance
 
         public override void OnEnabled()
         {
+            Instance = this;
             PlayerHandler.DamagingDoor += OnDamagingDoor;
             base.OnEnabled();
         }
@@ -22,6 +23,7 @@ namespace DoorsExplosionResistance
         public override void OnDisabled()
         {
             PlayerHandler.DamagingDoor -= OnDamagingDoor;
+            Instance = null;
             base.OnDisabled();
         }
 
