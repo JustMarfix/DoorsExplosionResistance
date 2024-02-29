@@ -1,4 +1,4 @@
 # DoorsExplosionResistance
 
-Exiled version: v8.6.0+
+Exiled version: v8.8.0+
 
